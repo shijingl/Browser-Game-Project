@@ -276,7 +276,5 @@ $(document).ready(function(){
   }
 
   start();
-
-
 });
   
