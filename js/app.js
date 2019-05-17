@@ -177,6 +177,106 @@ $(document).ready(function(){
     });
   }
 
+  function getRandomItem(array_obj) {
+    return array_obj[Math.floor(Math.random() * array_obj.length)];
+  }
+
+  function hint() {
+    let hiddenCards = Array.from(document.querySelectorAll('.card')).filter(function(card){
+      return card.classList.contains('open') === false;
+    });
+    let cardItem = getRandomItem(hiddenCards);
+    let card_name = '.card-' + cardItem.getAttribute('data-card');
+
+    pause = true;
+    document.querySelectorAll(card_name).forEach(function(card) {
+      card.classList.add('open', 'show');
+    });
+    setTimeout(function(){
+      document.querySelectorAll(card_name).forEach(function(card) {
+        card.classList.remove('open', 'show');
+      });
+      pause = false;
+    }, 3000);
+  }
+
+  function info() {
+    alert('Grading System: \n\n\
+    0-12 Moves = Great! \n\
+    13-24 Moves = Average \n\
+    25+ Moves = Poor...  \
+    ');
+  }
+
+  function start() {
+    generateCards();
+    activateCards();
+    flash_cards();
+    console.log('game started.');
+  }
+
+  function gameOver() {
+    isGameOver = true;
+    watch.stopTimer();
+
+    grade_results.innerText = grade;
+    moves_results.innerText = moves;
+    time_results.innerText = watch.getTimeString();
+
+    modal_instance.open();
+  }
+
+  function resetGame(e) {
+    if(e && e.preventDefault) { e.preventDefault(); }
+
+    // clears board then regenerate cards
+    clearDeck();
+    generateCards();
+    activateCards();
+    flash_cards();
+    watch.resetTimer();
+
+    // reset game state
+    moves = 0;
+    grade = 'Great!';
+    isGameOver = false;
+    matches = [];
+    lastFlipped = null;
+    pause = false;
+    didGameStart = false;
+
+    // reset DOM state
+    starsList.innerHTML = '';
+    starsList.innerHTML += '<li><i class="fa fa-star"></i></li>';
+    starsList.innerHTML += '<li><i class="fa fa-star"></i></li>';
+    starsList.innerHTML += '<li><i class="fa fa-star"></i></li>';
+    gradeSpan.innerText = grade;
+    movesText.innerText = moves;
+    timeText.innerText = watch.getTimeString();
+
+    flash_msg('New Game!');
+    console.log('game re-started.');
+  }
+
+  function flash_msg(message) {
+    msgText.innerText = message;
+    setTimeout(function(){ msgText.innerText = ''; }, 1725);
+  }
+
+  /* add the show/open classes then removes them after timeout */
+  function flash_cards() {
+    document.querySelectorAll('.card').forEach(function(card) {
+      card.classList.add('open', 'show');
+    });
+    setTimeout(function(){
+      document.querySelectorAll('.card').forEach(function(card) {
+        card.classList.remove('open', 'show');
+      });
+    }, 3000);
+  }
+
+  start();
+
 
 });
   
