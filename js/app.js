@@ -13,12 +13,26 @@ function shuffle(array) {
 }
 
 var allCards = document.querySelectorAll('.card');
+var openCards = []
 
 allCards.forEach(function(card){
-  card.addEventListener('click', function(e) {
-    //console.log(e);
-    //console.log(card);
-    card.classList.add('open', 'show');
+  card.addEventListener('click', function(e) { 
+    if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match')) {
+      openCards.push(card);
+      card.classList.add('open', 'show')
+      
+      if (openCards.length >= 2) {
+        //hide 
+        setTimeout(function() {
+          
+          openCards.forEach(function(card) {
+            card.classList.remove('open', 'show')
+          }); 
+          
+          openCards = [];
+        }, 1000);
+      }
+    }   
   });
 });
 
