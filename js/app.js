@@ -1,9 +1,34 @@
+
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  while (currentIndex !== 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+  }
+
+  return array;  
+}
+
+var allCards = document.querySelectorAll('.card');
+
+allCards.forEach(function(card){
+  card.addEventListener('click', function(e) {
+    console.log(e);
+  });
+});
+
+/*
 $(document).ready(function(){
   $('.modal').modal();
-
+*/
   /*
-  * Create all the card options
+  * Create all the card options. 
   */
+  /*
   let cardClassesList = [
       'fa-diamond',
       'fa-diamond',
@@ -25,7 +50,7 @@ $(document).ready(function(){
 
   let watch = new StopWatch();
 
-  let modal = document.getElementById('game_modal');
+  let modal = document.getElementById('game_modal');  
   let modal_instance = M.Modal.getInstance(modal);
   let deck = document.getElementById('deck');
   let gradeSpan = document.getElementById('grade');
@@ -54,8 +79,11 @@ $(document).ready(function(){
   gradeSpan.innerText = grade;
   movesText.innerText = moves;
   timeText.innerText = watch.getTimeString();
+  */
 
   // Shuffle function from http://stackoverflow.com/a/2450976
+
+  /*
   function shuffle(array) {
       var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -67,9 +95,12 @@ $(document).ready(function(){
           array[randomIndex] = temporaryValue;
       }
 
-      return array;
+      return array;  
   }
+  */
 
+
+  /*
   // creates li cards, gives data-card attr to each
   function createCard(card_class) {
     let li = document.createElement('li');
@@ -262,8 +293,11 @@ $(document).ready(function(){
     msgText.innerText = message;
     setTimeout(function(){ msgText.innerText = ''; }, 1725);
   }
+  */
 
   /* add the show/open classes then removes them after timeout */
+
+  /*
   function flash_cards() {
     document.querySelectorAll('.card').forEach(function(card) {
       card.classList.add('open', 'show');
@@ -276,5 +310,8 @@ $(document).ready(function(){
   }
 
   start();
+  */
+/*
 });
+*/
   

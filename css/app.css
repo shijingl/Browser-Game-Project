@@ -8,7 +8,6 @@ html {
     box-sizing: inherit;
 }
 
-/*
 html,
 body {
     width: 100%;
@@ -16,25 +15,18 @@ body {
     margin: 0;
     padding: 0;
 }
-*/
 
 body {
-    /* background: #ffffff url('../img/geometry2.png'); Background pattern from Subtle Patterns */
+    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
     font-family: 'Coda', cursive;
 }
 
-.text-center {
-    text-align: center;
-}
-
-/*
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-*/
 
 h1 {
     font-family: 'Open Sans', sans-serif;
@@ -42,13 +34,12 @@ h1 {
 }
 
 /*
- * Styles for the deck of cards
+ * Styles for the deck of cards  
  */
 
 .deck {
     width: 660px;
-    max-width: 100%;
-    /* min-height: 680px; */
+    min-height: 680px;
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
     padding: 32px;
     border-radius: 10px;
@@ -95,74 +86,24 @@ h1 {
  */
 
 .score-panel {
-text-align: left;
-/* float: right; */
-width: 625px;
-margin-bottom: 10px;
-max-width: 100%;
-}
-
-.middle-box {
-width: 660px;
-max-width: 100%;
-display: block;
-margin: auto;
+    text-align: left;
+    width: 345px;
+    margin-bottom: 10px;
 }
 
 .score-panel .stars {
-margin: 0;
-padding: 0;
-display: inline-block;
-margin: 0 5px 0 0;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
 }
 
 .score-panel .stars li {
-list-style: none;
-display: inline-block;
+    list-style: none;
+    display: inline-block;
 }
 
-.score-panel .restart, .score-panel .hint {
-margin-left: 15px;
-float: right;
-cursor: pointer;
+.score-panel .restart {
+    float: right;
+    cursor: pointer;
 }
-
-#deck {
-padding: 32px;
-/* margin-left: auto; */
-margin-bottom: 5px;
-}
-
-@media (max-width: 600px) {
-.deck .card {
-    height: 105px;
-    width: 105px;
-}
-#deck {
-    padding: 32px;
-    min-height: inherit;
-}
-}
-
-@media (max-width: 487px) {
-.deck .card {
-    height: 65px;
-    width: 65px;
-}
-#deck {
-    padding: 28px;
-    min-height: inherit;
-}
-}
-
-@media (max-width: 320px) {
-.deck .card {
-    height: 50px;
-    width: 50px;
-}
-#deck {
-    padding: 24px;
-    min-height: inherit;
-}
-}
-  
