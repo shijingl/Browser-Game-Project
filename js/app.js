@@ -9,7 +9,6 @@ function shuffle(array) {
       array[currentIndex] = array[randomIndex];
       array[randomIndex] = temporaryValue;
   }
-
   return array;  
 }
 
@@ -17,7 +16,9 @@ var allCards = document.querySelectorAll('.card');
 
 allCards.forEach(function(card){
   card.addEventListener('click', function(e) {
-    console.log(e);
+    //console.log(e);
+    //console.log(card);
+    card.classList.add('open', 'show');
   });
 });
 
