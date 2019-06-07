@@ -28,9 +28,12 @@ function shuffle(array) {
 
 function initGame() { 
   let deck = document.querySelector('.deck');
+  let moveCounter = document.querySelector('.moves');
+  
   let cardHTML = shuffle(cards).map(function(card) {
     return generateCard(card);
   });
+  moves = 0;
 
   deck.innerHTML = cardHTML.join('');
 }
@@ -42,6 +45,7 @@ initGame();
 
 let allCards = document.querySelectorAll('.card');
 let openCards = []
+let moves = 0;
 
 allCards.forEach(function(card){
   card.addEventListener('click', function(e) { 
