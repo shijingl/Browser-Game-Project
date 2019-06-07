@@ -8,6 +8,12 @@ let cards = ['fa-diamond', 'fa-diamond',
              'fa-leaf','fa-leaf'
             ];
 
+function generateCard(card) {
+  return `<li class="card"><i class = "fa ${card}"></i></li>`;
+}
+
+
+
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -21,13 +27,18 @@ function shuffle(array) {
   return array;  
 }
 
-/*
-function initGame() { 
 
+function initGame() { 
+  let deck = document.querySelector('.deck');
+  let cardHTML = cards.map(function(card) {
+    return generateCard(card);
+  });
+
+  deck.innerHTML = cardHTML.join('');
 }
 
-initGame
-*/
+initGame();
+
 
 
 
