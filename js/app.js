@@ -1,3 +1,12 @@
+let cards = ['fa-diamond', 'fa-diamond',
+             'fa-paper-plane-o','fa-paper-plane-o',
+             'fa-anchor','fa-anchor',
+             'fa-bolt','fa-bolt',
+             'fa-cube','fa-cube',
+             'fa-bomb','fa-bomb',
+             'fa-bicycle','fa-bicycle',
+             'fa-leaf','fa-leaf'
+            ];
 
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
@@ -12,8 +21,18 @@ function shuffle(array) {
   return array;  
 }
 
-var allCards = document.querySelectorAll('.card');
-var openCards = []
+/*
+function initGame() { 
+
+}
+
+initGame
+*/
+
+
+
+let allCards = document.querySelectorAll('.card');
+let openCards = []
 
 allCards.forEach(function(card){
   card.addEventListener('click', function(e) { 
@@ -21,6 +40,11 @@ allCards.forEach(function(card){
       openCards.push(card);
       card.classList.add('open', 'show')
       
+      //check if they match 
+      //var firstCardType = openCards[0].dataset.card
+      //console.log(f)
+
+      // if cards don't match, go away
       if (openCards.length >= 2) {
         //hide 
         setTimeout(function() {
