@@ -9,10 +9,8 @@ let cards = ['fa-diamond', 'fa-diamond',
             ];
 
 function generateCard(card) {
-  return `<li class="card"><i class = "fa ${card}"></i></li>`;
+  return `<li class="card" data-card="${card}"><i class = "fa ${card}"></i></li>`;
 }
-
-
 
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
@@ -30,7 +28,7 @@ function shuffle(array) {
 
 function initGame() { 
   let deck = document.querySelector('.deck');
-  let cardHTML = cards.map(function(card) {
+  let cardHTML = shuffle(cards).map(function(card) {
     return generateCard(card);
   });
 
@@ -50,22 +48,30 @@ allCards.forEach(function(card){
     if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match')) {
       openCards.push(card);
       card.classList.add('open', 'show')
-      
-      //check if they match 
-      //var firstCardType = openCards[0].dataset.card
-      //console.log(f)
 
       // if cards don't match, go away
       if (openCards.length >= 2) {
-        //hide 
-        setTimeout(function() {
-          
-          openCards.forEach(function(card) {
-            card.classList.remove('open', 'show')
-          }); 
-          
+        if (openCards[0].dataset.card == openCards[1].dataset.card) {
+          openCards[0].classList.add('match');
+          openCards[0].classList.add('open');
+          openCards[0].classList.add('show');
+
+          openCards[1].classList.add('match');
+          openCards[1].classList.add('open');
+          openCards[1].classList.add('show');
+
           openCards = [];
-        }, 1000);
+        } else {
+          //hide 
+          setTimeout(function() {
+            
+            openCards.forEach(function(card) {
+              card.classList.remove('open', 'show')
+            }); 
+            
+            openCards = [];
+          }, 1000);
+        }
       }
     }   
   });
