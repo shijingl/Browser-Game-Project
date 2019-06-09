@@ -9,8 +9,8 @@ let cards = ['fa-diamond', 'fa-diamond',
             ];
 
 function generateCard(card) {
-  return `<li class="card" data-card="${card}"><i class = "fa ${card}"></i></li>`;
-}
+  return `<li class="card" data-card="${card}"><i class = "fa ${card}"></i></li>`; 
+}  
 
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
@@ -28,12 +28,12 @@ function shuffle(array) {
 
 function initGame() { 
   let deck = document.querySelector('.deck');
-  let moveCounter = document.querySelector('.moves');
+  // let moveCounter = document.querySelector('.moves');
   
   let cardHTML = shuffle(cards).map(function(card) {
     return generateCard(card);
   });
-  moves = 0;
+  //moves = 0;
 
   deck.innerHTML = cardHTML.join('');
 }
@@ -41,11 +41,9 @@ function initGame() {
 initGame();
 
 
-
-
 let allCards = document.querySelectorAll('.card');
 let openCards = []
-let moves = 0;
+//let moves = 0;
 
 allCards.forEach(function(card){
   card.addEventListener('click', function(e) { 
