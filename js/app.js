@@ -15,6 +15,7 @@ function generateCard(card) {
   return `<li class="card" data-card="${card}"><i class = "fa ${card}"></i></li>`; 
 }  
 
+// Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -30,7 +31,6 @@ function shuffle(array) {
 
 function initGame() { 
   let deck = document.querySelector('.deck');
-  // let moveCounter = document.querySelector('.moves');  
   
   let cardHTML = shuffle(cards).map(function(card) {
     return generateCard(card);
@@ -46,7 +46,6 @@ initGame();
 
 let allCards = document.querySelectorAll('.card');
 let openCards = []
-//let moveCounter = document.querySelector('.moves');
 
 allCards.forEach(function(card){
   card.addEventListener('click', function(e) { 
