@@ -8,6 +8,9 @@ let cards = ['fa-diamond', 'fa-diamond',
              'fa-leaf','fa-leaf'
             ];
 
+let moves = 0;
+let moveCounter = document.querySelector('.moves');
+
 function generateCard(card) {
   return `<li class="card" data-card="${card}"><i class = "fa ${card}"></i></li>`; 
 }  
@@ -25,15 +28,15 @@ function shuffle(array) {
   return array;  
 }
 
-
 function initGame() { 
   let deck = document.querySelector('.deck');
-  // let moveCounter = document.querySelector('.moves');
+  // let moveCounter = document.querySelector('.moves');  
   
   let cardHTML = shuffle(cards).map(function(card) {
     return generateCard(card);
   });
-  //moves = 0;
+  moves = 0;
+  moveCounter.innerText = moves;  
 
   deck.innerHTML = cardHTML.join('');
 }
@@ -43,7 +46,7 @@ initGame();
 
 let allCards = document.querySelectorAll('.card');
 let openCards = []
-//let moves = 0;
+//let moveCounter = document.querySelector('.moves');
 
 allCards.forEach(function(card){
   card.addEventListener('click', function(e) { 
@@ -74,6 +77,9 @@ allCards.forEach(function(card){
             openCards = [];
           }, 1000);
         }
+
+        moves += 1
+        moveCounter.innerText = moves;
       }
     }   
   });
