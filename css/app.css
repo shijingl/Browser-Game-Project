@@ -107,3 +107,7 @@ h1 {
     float: right;
     cursor: pointer;
 }
+
+.moves {
+    display: inline-block;
+}
