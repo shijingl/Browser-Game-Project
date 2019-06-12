@@ -12,6 +12,9 @@ let moveCounter = document.querySelector('.moves-count');
 let moveText = document.querySelector('.moves-text'); 
 let deck = document.querySelector('.deck');  
 let stars = document.getElementById('stars-list');
+let timerHours = document.querySelector('.timer .hours');
+let timerMins = document.querySelector('.timer .minutes');
+let timerSeconds = document.querySelector('.timer .seconds');
 
 // number of moves   
 let moves = 0;
@@ -25,14 +28,51 @@ let rating = 3;
 // list of open cards  
 let openCards = []
 
+// record when the game started
+let gameStarted = false
+
+// define the time here
+let elapsedSeconds = 0;
+let hour = 0;
+let min = 0;
+let sec = 0;
+
+//  define timer
+let timer = undefined;
+
 // start the game  
 initGame();
+
+function startTimer() {
+  if (!gameStarted) {
+      gameStarted = true;
+      timer = setInterval(setTime, 1000);
+  }
+}
+
+function stopTimer() {
+  gameStarted = false;
+  clearInterval(timer);
+}
+
+function setTime() {
+  let remainderSeconds = ++elapsedSeconds;
+  hour = parseInt(remainderSeconds / 3600);
+  timerHours.textContent = stringifyTime(hour);
+  remainderSeconds = remainderSeconds % 3600;
+  min = parseInt(remainderSeconds / 60)
+  timerMins.textContent = stringifyTime(min);
+  remainderSeconds = remainderSeconds % 60;
+  sec = remainderSeconds;
+  timerSeconds.textContent = stringifyTime(sec);
+}
 
 function generateCard(card) {
   return `<li class="card" data-card="${card}"><i class = "fa ${card}"></i></li>`; 
 }  
 
-function initGame() {  
+function initGame() {
+  startTimer();  
   let cardHTML = shuffle(cards).map(function(card) {
     return generateCard(card);
   });
@@ -111,6 +151,7 @@ function matchIncrementor() {
 function winChecker() {
   if (matches === 8) {
     console.log('you win!!');
+    stopTimer();
   }
 }
 
@@ -135,8 +176,16 @@ function shuffle(array) {
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex -= 1;
       temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
+      array[currentIndex] = array[randomIndex];  
       array[randomIndex] = temporaryValue;
   }
   return array;  
+}
+
+/*
+* @description Convert min, hour & seconds into string
+*/
+function stringifyTime(val) {
+  var valString = val + '';
+  return valString.length >= 2 ? `${val}` : `0${val}`;
 }

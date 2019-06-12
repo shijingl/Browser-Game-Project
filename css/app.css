@@ -111,3 +111,8 @@ h1 {
 .moves {
     display: inline-block;
 }
+
+.timer {
+    text-align: center;
+}
+
