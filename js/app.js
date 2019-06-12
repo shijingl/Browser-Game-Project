@@ -74,6 +74,13 @@ function matchCard(card) {
   card.classList.add('match');
 }
 
+// Function to remove 'open and show' class to card
+function closeCard(card) {
+  setTimeout(function() {
+    card.classList.remove('open', 'show')
+  }, 500);
+}
+
 
 let allCards = document.querySelectorAll('.card');
 let openCards = []
@@ -84,27 +91,19 @@ allCards.forEach(function(card){
       openCards.push(card);
       card.classList.add('open', 'show')
 
-      // if cards don't match, go away
+      // if cards don't match, go away  
       if (openCards.length == 2) {
         if (openCards[0].dataset.card == openCards[1].dataset.card) {
           matchCard(openCards[0]);
           matchCard(openCards[1]);
 
           matchIncrementor();
-          openCards = [];
           winChecker();
         } else {
-          //hide 
-          setTimeout(function() {
-            
-            openCards.forEach(function(card) {
-              card.classList.remove('open', 'show')
-            }); 
-            
-            openCards = [];
-          }, 1000);
+          closeCard(openCards[0]);
+          closeCard(openCards[1]);
         }
-
+        openCards = []
         incrementMove(); 
       }
     }   
