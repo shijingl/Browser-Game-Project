@@ -8,9 +8,14 @@ let cards = ['fa-diamond', 'fa-diamond',
              'fa-leaf','fa-leaf'
             ];
 
-let moves = 0;
 let moveCounter = document.querySelector('.moves-count');
-let moveText = document.querySelector('.moves-text');
+let moveText = document.querySelector('.moves-text');   
+
+// number of moves
+let moves = 0;
+
+// number of matches 
+let matches = 0;
 
 function generateCard(card) {
   return `<li class="card" data-card="${card}"><i class = "fa ${card}"></i></li>`; 
@@ -54,6 +59,15 @@ function incrementMove() {
   }
 }
 
+function matchIncrementor() {
+  matches++; 
+}
+
+function winChecker() {
+  if (matches === 8) {
+    console.log('you win!!');
+  }
+}
 
 let allCards = document.querySelectorAll('.card');
 let openCards = []
@@ -67,6 +81,7 @@ allCards.forEach(function(card){
       // if cards don't match, go away
       if (openCards.length == 2) {
         if (openCards[0].dataset.card == openCards[1].dataset.card) {
+
           openCards[0].classList.add('match');
           openCards[0].classList.add('open');
           openCards[0].classList.add('show');
@@ -75,7 +90,9 @@ allCards.forEach(function(card){
           openCards[1].classList.add('open');
           openCards[1].classList.add('show');
 
+          matchIncrementor();
           openCards = [];
+          winChecker();
         } else {
           //hide 
           setTimeout(function() {
@@ -89,8 +106,6 @@ allCards.forEach(function(card){
         }
 
         incrementMove(); 
-        // moves += 1
-        // moveCounter.innerText = moves;
       }
     }   
   });
