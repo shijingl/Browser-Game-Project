@@ -83,12 +83,7 @@ allCards.forEach(function(card){
         if (openCards[0].dataset.card == openCards[1].dataset.card) {
 
           openCards[0].classList.add('match');
-          openCards[0].classList.add('open');
-          openCards[0].classList.add('show');
-
           openCards[1].classList.add('match');
-          openCards[1].classList.add('open');
-          openCards[1].classList.add('show');
 
           matchIncrementor();
           openCards = [];
