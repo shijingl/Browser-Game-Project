@@ -11,6 +11,7 @@ let cards = ['fa-diamond', 'fa-diamond',
 let moveCounter = document.querySelector('.moves-count');
 let moveText = document.querySelector('.moves-text'); 
 let deck = document.querySelector('.deck');  
+let stars = document.getElementById('stars-list');
 
 // number of moves   
 let moves = 0;
@@ -18,39 +19,14 @@ let moves = 0;
 // number of matches  
 let matches = 0;
 
+// Number of start
+let rating = 3;
+
 // list of open cards  
 let openCards = []
 
 // start the game  
 initGame();
-
-/*
-allCards.forEach(function(card){  
-  card.addEventListener('click', function(e) { 
-    if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match')) {
-      openCards.push(card);
-      card.classList.add('open', 'show')
-      let first_card = openCards[0]  
-      let second_card = openCards[1]  
-
-      // if cards don't match, go away  
-      if (openCards.length == 2) {
-        if (first_card.dataset.card == second_card.dataset.card) {
-          matchCard(first_card);
-          matchCard(second_card);
-          matchIncrementor();
-          winChecker();
-        } else {
-          closeCard(first_card);
-          closeCard(second_card);
-        }
-        openCards = []
-        incrementMove(); 
-      }
-    }   
-  });
-});
-*/
 
 function generateCard(card) {
   return `<li class="card" data-card="${card}"><i class = "fa ${card}"></i></li>`; 
@@ -111,6 +87,20 @@ function incrementMove() {
     moveText.innerText = ' Move';
   } else {
     moveText.innerText = ' Moves';
+  }
+  ratingChecker();
+}
+
+function ratingChecker() {
+  if (moves === 5) {
+      rating--;
+      stars.removeChild(stars.children[0])
+  } else if (moves === 8) {
+      rating--;
+      stars.removeChild(stars.children[0])
+  } else if (moves === 10) {
+      rating--;
+      stars.removeChild(stars.children[0])
   }
 }
 
