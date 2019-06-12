@@ -9,45 +9,80 @@ let cards = ['fa-diamond', 'fa-diamond',
             ];
 
 let moveCounter = document.querySelector('.moves-count');
-let moveText = document.querySelector('.moves-text');   
+let moveText = document.querySelector('.moves-text'); 
+let deck = document.querySelector('.deck');  
+// let allCards = document.querySelectorAll('.card'); 
 
-// number of moves
+// number of moves   
 let moves = 0;
 
-// number of matches 
+// number of matches  
 let matches = 0;
+
+// start the game  
+initGame();
+
+// list of open cards  
+let openCards = []
+
+/*
+allCards.forEach(function(card){
+  card.addEventListener('click', function(e) { 
+    if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match')) {
+      openCards.push(card);
+      card.classList.add('open', 'show')
+      first_card = openCards[0]  
+      second_card = openCards[1]
+
+      // if cards don't match, go away  
+      if (openCards.length == 2) {
+        if (first_card.dataset.card == second_card.dataset.card) {
+          matchCard(first_card);
+          matchCard(second_card);
+          matchIncrementor();
+          winChecker();
+        } else {
+          closeCard(first_card);
+          closeCard(second_card);
+        }
+        openCards = []
+        incrementMove(); 
+      }
+    }   
+  });
+});
+*/
 
 function generateCard(card) {
   return `<li class="card" data-card="${card}"><i class = "fa ${card}"></i></li>`; 
 }  
 
-// Shuffle function from http://stackoverflow.com/a/2450976
-function shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
-
-  while (currentIndex !== 0) {
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
-  }
-  return array;  
-}
-
-function initGame() { 
-  let deck = document.querySelector('.deck');
-  
+function initGame() {  
   let cardHTML = shuffle(cards).map(function(card) {
     return generateCard(card);
   });
   moves = 0;
-  moveCounter.innerText = moves;  
-
+  moveCounter.innerText = moves; 
   deck.innerHTML = cardHTML.join('');
+  allCards = document.querySelectorAll('.card'); 
+
+  allCards.forEach(function(card){
+    card.addEventListener('click', showCard)
+  });
 }
 
-initGame();
+function showCard(event){
+  let target = event.target;
+  const parent = target.parentElement;
+  if (parent.classList.contains('card')) {
+    target = parent;
+  }
+
+  if (!openCards.includes(target)) {
+    target.classList.add('open', 'show');
+    openCards.push(target);
+  }
+}
 
 function incrementMove() {
   moves++;
@@ -81,31 +116,18 @@ function closeCard(card) {
   }, 500);
 }
 
+/*===============================Helper Functions============================*/
 
-let allCards = document.querySelectorAll('.card');
-let openCards = []
+// Shuffle function from http://stackoverflow.com/a/2450976
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
 
-allCards.forEach(function(card){
-  card.addEventListener('click', function(e) { 
-    if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match')) {
-      openCards.push(card);
-      card.classList.add('open', 'show')
-
-      // if cards don't match, go away  
-      if (openCards.length == 2) {
-        if (openCards[0].dataset.card == openCards[1].dataset.card) {
-          matchCard(openCards[0]);
-          matchCard(openCards[1]);
-
-          matchIncrementor();
-          winChecker();
-        } else {
-          closeCard(openCards[0]);
-          closeCard(openCards[1]);
-        }
-        openCards = []
-        incrementMove(); 
-      }
-    }   
-  });
-});
+  while (currentIndex !== 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+  }
+  return array;  
+}
