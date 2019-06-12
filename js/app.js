@@ -11,7 +11,6 @@ let cards = ['fa-diamond', 'fa-diamond',
 let moveCounter = document.querySelector('.moves-count');
 let moveText = document.querySelector('.moves-text'); 
 let deck = document.querySelector('.deck');  
-// let allCards = document.querySelectorAll('.card'); 
 
 // number of moves   
 let moves = 0;
@@ -19,20 +18,20 @@ let moves = 0;
 // number of matches  
 let matches = 0;
 
-// start the game  
-initGame();
-
 // list of open cards  
 let openCards = []
 
+// start the game  
+initGame();
+
 /*
-allCards.forEach(function(card){
+allCards.forEach(function(card){  
   card.addEventListener('click', function(e) { 
     if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match')) {
       openCards.push(card);
       card.classList.add('open', 'show')
-      first_card = openCards[0]  
-      second_card = openCards[1]
+      let first_card = openCards[0]  
+      let second_card = openCards[1]  
 
       // if cards don't match, go away  
       if (openCards.length == 2) {
@@ -81,7 +80,28 @@ function showCard(event){
   if (!openCards.includes(target)) {
     target.classList.add('open', 'show');
     openCards.push(target);
+    matchChecker();
   }
+}
+
+function matchChecker(){
+  const length = openCards.length;
+  if (length == 2) {
+    const first_card = openCards[0]  
+    const second_card = openCards[1]
+    if (first_card.dataset.card == second_card.dataset.card) {
+      matchCard(first_card);
+      matchCard(second_card);
+      matchIncrementor();
+      winChecker();
+    } else {
+      closeCard(first_card);
+      closeCard(second_card);
+    }
+    openCards = []
+    incrementMove();   
+  }
+
 }
 
 function incrementMove() {
@@ -117,7 +137,6 @@ function closeCard(card) {
 }
 
 /*===============================Helper Functions============================*/
-
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
