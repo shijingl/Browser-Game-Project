@@ -16,6 +16,13 @@ let timerHours = document.querySelector('.timer .hours');
 let timerMins = document.querySelector('.timer .minutes');
 let timerSeconds = document.querySelector('.timer .seconds');
 
+const modal = document.querySelector('#game_modal');
+const modalMoves = document.querySelector('.modal-body .moves-count');
+const modalHours = document.querySelector('.modal-body .hours');
+const modalMins = document.querySelector('.modal-body .mins');
+const modalSeconds = document.querySelector('.modal-body .seconds');
+const modalRating = document.querySelector('.modal-body .rating');
+
 // number of moves   
 let moves = 0;
 
@@ -71,8 +78,7 @@ function generateCard(card) {
   return `<li class="card" data-card="${card}"><i class = "fa ${card}"></i></li>`; 
 }  
 
-function initGame() {
-  startTimer();  
+function initGame() { 
   let cardHTML = shuffle(cards).map(function(card) {
     return generateCard(card);
   });
@@ -87,6 +93,7 @@ function initGame() {
 }
 
 function showCard(event){
+  startTimer(); 
   let target = event.target;
   const parent = target.parentElement;
   if (parent.classList.contains('card')) {
@@ -117,7 +124,6 @@ function matchChecker(){
     openCards = []
     incrementMove();   
   }
-
 }
 
 function incrementMove() {
@@ -150,8 +156,8 @@ function matchIncrementor() {
 
 function winChecker() {
   if (matches === 8) {
-    console.log('you win!!');
     stopTimer();
+    openModal();
   }
 }
 
@@ -165,6 +171,21 @@ function closeCard(card) {
   setTimeout(function() {
     card.classList.remove('open', 'show')
   }, 500);
+}
+
+// open the modal
+function openModal() {
+  modalHours.textContent = hour > 0 ? `${hour} hours, ` : '';
+  modalMins.textContent = min > 0 ? `${min} minutes, ` : '';
+  modalSeconds.textContent = `${sec} seconds`;
+  modalMoves.textContent = `${moves} moves`;
+  modalRating.textContent = rating;
+  modal.style.display = 'block';
+}
+
+// close the modal
+function closeModal() {
+  modal.style.display = 'none';
 }
 
 /*===============================Helper Functions============================*/
