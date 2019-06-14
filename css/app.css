@@ -85,11 +85,31 @@ h1 {
  * Styles for the Score Panel
  */
 
+ .score-panel {
+    text-align: left;
+    width: 85%;
+    padding: 0 35px;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.score {
+    display: inherit;
+    text-align: center;
+}
+
+/*
 .score-panel {
     text-align: left;
     width: 345px;
     margin-bottom: 10px;
 }
+*/
 
 .score-panel .stars {
     margin: 0;
