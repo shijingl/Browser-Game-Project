@@ -47,6 +47,9 @@ let sec = 0;
 //  define timer
 let timer = undefined;
 
+// reset button
+// restartBtn.addEventListener('click', restartGame);
+
 // start the game  
 initGame();
 
@@ -138,13 +141,13 @@ function incrementMove() {
 }
 
 function ratingChecker() {
-  if (moves === 5) {
+  if (moves === 12) {
       rating--;
       stars.removeChild(stars.children[0])
-  } else if (moves === 8) {
+  } else if (moves === 20) {
       rating--;
       stars.removeChild(stars.children[0])
-  } else if (moves === 10) {
+  } else if (moves === 27) {
       rating--;
       stars.removeChild(stars.children[0])
   }
