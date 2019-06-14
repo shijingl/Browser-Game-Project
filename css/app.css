@@ -169,3 +169,34 @@ h1 {
     text-align: center;
 }
 
+.replay {
+    padding: 1em;
+}
+
+.modal-replay-btn {
+    display: block;
+    background-color: #8c4ed6;
+    color: white;
+    font-size: 16px;
+    font-weight: normal;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    margin: auto;
+    -webkit-box-shadow: 7px 7px 30px #999999;
+    box-shadow: 7px 7px 30px #999999;
+    -webkit-transition: -webkit-box-shadow 0.5s;
+    -moz-transition: -webkit-box-shadow 0.5s;
+    -o-transition: -webkit-box-shadow 0.5s;
+    transition: -webkit-box-shadow 0.5s;
+    -o-transition: box-shadow 0.5s;
+    transition: box-shadow 0.5s, -webkit-box-shadow 0.5s;
+}
+
+.modal-replay-btn:hover, .modal-replay-btn:focus {
+    -webkit-box-shadow: 3px 3px 8px #6F6F6F;
+    box-shadow: 3px 3px 8px #6F6F6F;
+    background-color: #9759E3;
+    cursor: pointer;
+}
+
