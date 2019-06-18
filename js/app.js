@@ -49,10 +49,10 @@ let sec = 0;
 let timer = undefined;
 
 // reset button
-restart.addEventListener('click', resetDeck);
+restart.addEventListener('click', resetGame);
 
 // start the game  
-resetDeck();
+resetGame();
 
 function startTimer() {
   if (!gameStarted) {
@@ -82,13 +82,30 @@ function generateCard(card) {
   return `<li class="card" data-card="${card}"><i class = "fa ${card}"></i></li>`; 
 }  
 
-function resetDeck() { 
+function resetGame() { 
   let cardHTML = shuffle(cards).map(function(card) {
     return generateCard(card);
   });
+  //reset moves
   moves = 0;
+
+  //reset matches
   matches = 0;
   moveCounter.innerText = moves; 
+
+  //reset time
+  elapsedSeconds = 0;
+  hour = 0;
+  min = 0;
+  sec = 0;
+  timerHours.textContent = '00';
+  timerMins.textContent = '00';
+  timerSeconds.textContent = '00';
+
+  // Stop timer
+  stopTimer();
+  
+  //shuffle the cards
   deck.innerHTML = cardHTML.join('');
   allCards = document.querySelectorAll('.card'); 
 
