@@ -16,6 +16,7 @@ let timerHours = document.querySelector('.timer .hours');
 let timerMins = document.querySelector('.timer .minutes');
 let timerSeconds = document.querySelector('.timer .seconds');
 
+const restart = document.querySelector('.restart');
 const modal = document.querySelector('#game_modal');
 const modalMoves = document.querySelector('.modal-body .moves-count');
 const modalHours = document.querySelector('.modal-body .hours');
@@ -48,10 +49,10 @@ let sec = 0;
 let timer = undefined;
 
 // reset button
-// restartBtn.addEventListener('click', restartGame);
+restart.addEventListener('click', resetDeck);
 
 // start the game  
-initGame();
+resetDeck();
 
 function startTimer() {
   if (!gameStarted) {
@@ -81,11 +82,12 @@ function generateCard(card) {
   return `<li class="card" data-card="${card}"><i class = "fa ${card}"></i></li>`; 
 }  
 
-function initGame() { 
+function resetDeck() { 
   let cardHTML = shuffle(cards).map(function(card) {
     return generateCard(card);
   });
   moves = 0;
+  matches = 0;
   moveCounter.innerText = moves; 
   deck.innerHTML = cardHTML.join('');
   allCards = document.querySelectorAll('.card'); 
