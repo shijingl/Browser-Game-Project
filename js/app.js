@@ -52,7 +52,7 @@ let timer = undefined;
 
 // reset button, replay button, close button
 restart.addEventListener('click', resetGame);
-replay.addEventListener('click', resetGame);
+replay.addEventListener('click', replayGame);
 close.addEventListener('click', closeModal);
 
 // start the game  
@@ -116,6 +116,11 @@ function resetGame() {
   allCards.forEach(function(card){
     card.addEventListener('click', showCard)
   });
+}
+
+function replayGame() {
+  closeModal();
+  resetGame();
 }
 
 function showCard(event){
@@ -214,7 +219,6 @@ function closeModal() {
   modal.style.display = 'none';
 }
 
-/*===============================Helper Functions============================*/
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
