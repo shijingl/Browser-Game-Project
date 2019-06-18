@@ -163,6 +163,31 @@ h1 {
     animation-duration: 1s;
 }
 
+.modal-header {
+    background: -webkit-linear-gradient(290deg, #02ccba 0%, #aa7ecd 100%);
+    background: -o-linear-gradient(290deg, #02ccba 0%, #aa7ecd 100%);
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    padding:15px;
+    color:#fff;
+}
+
+.modal-header h2 {
+    text-align: center;
+    margin:0;
+}
+
+.modal-close-btn {
+    float: right;
+    font-size: 1.5em;
+    color:#fff;
+}
+
+.modal-close-btn:hover, .modal-close-btn:focus {
+    color:#000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .modal-body {
     color: black;
     padding: 10px 20px;
