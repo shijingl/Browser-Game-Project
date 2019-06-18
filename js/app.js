@@ -17,6 +17,8 @@ let timerMins = document.querySelector('.timer .minutes');
 let timerSeconds = document.querySelector('.timer .seconds');
 
 const restart = document.querySelector('.restart');
+const close = document.querySelector('.modal-close-btn');
+const replay = document.querySelector('.modal-replay-btn');
 const modal = document.querySelector('#game_modal');
 const modalMoves = document.querySelector('.modal-body .moves-count');
 const modalHours = document.querySelector('.modal-body .hours');
@@ -48,8 +50,10 @@ let sec = 0;
 //  define timer
 let timer = undefined;
 
-// reset button
+// reset button, replay button, close button
 restart.addEventListener('click', resetGame);
+replay.addEventListener('click', resetGame);
+close.addEventListener('click', closeModal);
 
 // start the game  
 resetGame();
