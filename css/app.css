@@ -38,6 +38,7 @@ h1 {
  */
 
 .deck {
+ 
     width: 660px;
     min-height: 680px;
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
@@ -231,3 +232,35 @@ h1 {
     }
 }
 
+/*
+@media screen and (max-width: 550px) {
+    .game-heading {
+        margin-bottom: 0;
+    }
+
+    .card {
+        width: 90px;
+        height: 90px;
+    }
+
+    .score-panel {
+        display: block;
+    }
+
+    .score {
+        margin: 10px auto;
+    }
+
+    .timer {
+        margin: 10px auto;
+    }
+    
+    .score-panel .restart {
+        margin: 10px auto;
+    }
+
+    .card.show {
+        font-size: 2em;
+    }
+}
+*/
