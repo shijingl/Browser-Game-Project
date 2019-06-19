@@ -87,7 +87,7 @@ h1 {
 
  .score-panel {
     text-align: left;
-    width: 70%;
+    width: 50%;
     padding: 0 35px;
     margin-bottom: 10px;
     display: -webkit-box;
@@ -223,5 +223,11 @@ h1 {
     box-shadow: 3px 3px 8px #6F6F6F;
     background-color: #9759E3;
     cursor: pointer;
+}
+
+@media screen and (max-width: 1230px) {
+    .score-panel {
+        width: 70%;
+    }
 }
 
