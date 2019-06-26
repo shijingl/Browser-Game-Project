@@ -187,9 +187,9 @@ h1 {
 }
 
 .modal-header {
-    background: -webkit-linear-gradient(290deg, #02ccba 0%, #aa7ecd 100%);
-    background: -o-linear-gradient(290deg, #02ccba 0%, #aa7ecd 100%);
-    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    background: -webkit-linear-gradient(290deg, #02ccba 0%, #1E90FF 100%);
+    background: -o-linear-gradient(290deg, #02ccba 0%, #1E90FF 100%);
+    background: linear-gradient(160deg, #02ccba 0%, #1E90FF 100%);
     padding:15px;
     color:#fff;
 }
@@ -223,7 +223,7 @@ h1 {
 
 .modal-replay-btn {
     display: block;
-    background-color: #8c4ed6;
+    background-color: #1E90FF;
     color: white;
     font-size: 16px;
     font-weight: normal;
@@ -244,7 +244,7 @@ h1 {
 .modal-replay-btn:hover, .modal-replay-btn:focus {
     -webkit-box-shadow: 3px 3px 8px #6F6F6F;
     box-shadow: 3px 3px 8px #6F6F6F;
-    background-color: #9759E3;
+    background-color: #1E90FF;
     cursor: pointer;
 }
 
