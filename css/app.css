@@ -172,7 +172,7 @@ h1 {
 }
 
 .score-panel .restart {
-    float: right;
+    text-align: center;
     cursor: pointer;
 }
 
@@ -298,6 +298,34 @@ h1 {
     }
 }
 
+@media screen and (max-width: 840px) {
+    .card {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media screen and (max-width: 735px) {
+    .container {
+        width: 100%;
+    }
+
+    .deck {
+        width: 90%;
+    }
+
+    .card {
+        width: 110px;
+        height: 110px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .deck {
+        width: 95%;
+    }
+}
+
 @media screen and (max-width: 550px) {
     .game-heading {
         margin-bottom: 0;
@@ -329,35 +357,16 @@ h1 {
     }
 }
 
-/*
-@media screen and (max-width: 550px) {
-    .game-heading {
-        margin-bottom: 0;
-    }
-
+@media screen and (max-width: 465px) {
     .card {
-        width: 90px;
-        height: 90px;
-    }
-
-    .score-panel {
-        display: block;
-    }
-
-    .score {
-        margin: 10px auto;
-    }
-
-    .timer {
-        margin: 10px auto;
-    }
-    
-    .score-panel .restart {
-        margin: 10px auto;
-    }
-
-    .card.show {
-        font-size: 2em;
+        width: 70px;
+        height: 70px;
     }
 }
-*/
+
+@media screen and (max-width: 380px) {
+    .card {
+        width: 55px;
+        height: 55px;
+    }
+}
