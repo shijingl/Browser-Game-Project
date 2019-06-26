@@ -1,1 +1,14 @@
 # Memory Game
+Memory Game is a browser-based game. To win this game, you have to find out all the match patterns on the deck. 
+
+###Technical
+This project consists of the following assets: 
+* `index.html` The HTML files that contains the general structure of the game
+* `app.css` All the styling
+* `app.js` All the functions of the game
+
+###Credits
+* For shuffling the cards shuffle javaScript function was used from http://stackoverflow.com/a/2450976
+
+###Tools Used
+* Fontawesome was used to display game card's icons.
