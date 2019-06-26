@@ -118,11 +118,13 @@ function resetGame() {
   });
 }
 
+//replay the game in the modal
 function replayGame() {
   closeModal();
   resetGame();
 }
 
+//flip a card
 function showCard(event){
   startTimer(); 
   let target = event.target;
@@ -138,6 +140,7 @@ function showCard(event){
   }
 }
 
+//check if two flipped cards match
 function matchChecker(){
   const length = openCards.length;
   if (length == 2) {
@@ -157,6 +160,7 @@ function matchChecker(){
   }
 }
 
+//adjust the text for move(s)
 function incrementMove() {
   moves++;
   moveCounter.innerText = moves;
@@ -168,6 +172,7 @@ function incrementMove() {
   ratingChecker();
 }
 
+//check the rating for moves
 function ratingChecker() {
   if (moves === 12) {
       rating--;
@@ -233,9 +238,8 @@ function shuffle(array) {
   return array;  
 }
 
-/*
-* @description Convert min, hour & seconds into string
-*/
+
+// description Convert min, hour & seconds into string
 function stringifyTime(val) {
   var valString = val + '';
   return valString.length >= 2 ? `${val}` : `0${val}`;
