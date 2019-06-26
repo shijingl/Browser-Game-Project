@@ -11,4 +11,4 @@ This project consists of the following assets:
 * For shuffling the cards shuffle javaScript function was used from http://stackoverflow.com/a/2450976
 
 ### Tools Used
-* Fontawesome(https://fontawesome.com/icons?from=io) was used to display game card's icons.
+* [Fontawesome](https://fontawesome.com/icons?from=io) was used to display game card's icons.
