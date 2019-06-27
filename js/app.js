@@ -86,6 +86,7 @@ function generateCard(card) {
   return `<li class="card" data-card="${card}"><i class = "fa ${card}"></i></li>`; 
 }  
 
+//reset the entire game, including time and deck
 function resetGame() { 
   let cardHTML = shuffle(cards).map(function(card) {
     return generateCard(card);
@@ -146,6 +147,7 @@ function matchChecker(){
   if (length == 2) {
     const first_card = openCards[0]  
     const second_card = openCards[1]
+    incrementMove();   
     if (first_card.dataset.card == second_card.dataset.card) {
       matchCard(first_card);
       matchCard(second_card);
@@ -156,7 +158,6 @@ function matchChecker(){
       closeCard(second_card);
     }
     openCards = []
-    incrementMove();   
   }
 }
 
@@ -237,7 +238,6 @@ function shuffle(array) {
   }
   return array;  
 }
-
 
 // description Convert min, hour & seconds into string
 function stringifyTime(val) {
