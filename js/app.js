@@ -94,6 +94,15 @@ function resetGame() {
   //reset moves
   moves = 0;
 
+  //reset rating
+  rating = 3;
+
+  //reset starsList
+  stars.innerHTML = '';
+  stars.innerHTML += '<li><i class="fa fa-star"></i></li>';
+  stars.innerHTML += '<li><i class="fa fa-star"></i></li>';
+  stars.innerHTML += '<li><i class="fa fa-star"></i></li>';
+
   //reset matches
   matches = 0;
   moveCounter.innerText = moves; 
