@@ -181,9 +181,6 @@ function ratingChecker() {
   } else if (moves === 20) {
       rating--;
       stars.removeChild(stars.children[0])
-  } else if (moves === 27) {
-      rating--;
-      stars.removeChild(stars.children[0])
   }
 }
 
