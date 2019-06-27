@@ -1,12 +1,14 @@
-let cards = ['fa-diamond', 'fa-diamond',
-             'fa-paper-plane-o','fa-paper-plane-o',
-             'fa-anchor','fa-anchor',
-             'fa-bolt','fa-bolt',
-             'fa-cube','fa-cube',
-             'fa-bomb','fa-bomb',
-             'fa-bicycle','fa-bicycle',
-             'fa-leaf','fa-leaf'
+let icons =  ['fa-diamond',
+              'fa-paper-plane-o',
+              'fa-anchor',
+              'fa-bolt',
+              'fa-cube',
+              'fa-leaf',
+              'fa-bicycle',
+              'fa-bomb'
             ];
+
+let cards = [...icons, ...icons];
 
 let moveCounter = document.querySelector('.moves-count');
 let moveText = document.querySelector('.moves-text'); 
