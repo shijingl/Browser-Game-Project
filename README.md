@@ -1,5 +1,5 @@
 # Memory Game
-Memory Game is a browser-based game. To win this game, you have to find out all the match patterns on the deck. 
+Memory Game is a browser-based game. To win this game, you have to find out all the match patterns on the deck. The game can be played here: https://shijingl.github.io/Browser-Game-Project/
 
 ### Technical
 This project consists of the following assets: 
