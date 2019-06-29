@@ -1,4 +1,4 @@
-let icons =  ['fa-diamond',
+const icons =  ['fa-diamond',
               'fa-paper-plane-o',
               'fa-anchor',
               'fa-bolt',
@@ -8,15 +8,15 @@ let icons =  ['fa-diamond',
               'fa-bomb'
             ];
 
-let cards = [...icons, ...icons];
+const cards = [...icons, ...icons];
 
-let moveCounter = document.querySelector('.moves-count');
-let moveText = document.querySelector('.moves-text'); 
-let deck = document.querySelector('.deck');  
-let stars = document.getElementById('stars-list');
-let timerHours = document.querySelector('.timer .hours');
-let timerMins = document.querySelector('.timer .minutes');
-let timerSeconds = document.querySelector('.timer .seconds');
+const moveCounter = document.querySelector('.moves-count');
+const moveText = document.querySelector('.moves-text');
+const deck = document.querySelector('.deck');
+const stars = document.getElementById('stars-list');
+const timerHours = document.querySelector('.timer .hours');
+const timerMins = document.querySelector('.timer .minutes');
+const timerSeconds = document.querySelector('.timer .seconds');
 
 const restart = document.querySelector('.restart');
 const close = document.querySelector('.modal-close-btn');
@@ -38,10 +38,10 @@ let matches = 0;
 let rating = 3;
 
 // list of open cards  
-let openCards = []
+let openCards = [];
 
 // record when the game started
-let gameStarted = false
+let gameStarted = false;
 
 // define the time here
 let elapsedSeconds = 0;
@@ -77,7 +77,7 @@ function setTime() {
   hour = parseInt(remainderSeconds / 3600);
   timerHours.textContent = stringifyTime(hour);
   remainderSeconds = remainderSeconds % 3600;
-  min = parseInt(remainderSeconds / 60)
+  min = parseInt(remainderSeconds / 60);
   timerMins.textContent = stringifyTime(min);
   remainderSeconds = remainderSeconds % 60;
   sec = remainderSeconds;
@@ -156,8 +156,8 @@ function showCard(event){
 function matchChecker(){
   const length = openCards.length;
   if (length == 2) {
-    const first_card = openCards[0]  
-    const second_card = openCards[1]
+    const first_card = openCards[0]; 
+    const second_card = openCards[1];
     incrementMove();   
     if (first_card.dataset.card == second_card.dataset.card) {
       matchCard(first_card);
@@ -188,10 +188,10 @@ function incrementMove() {
 function ratingChecker() {
   if (moves === 12) {
       rating--;
-      stars.removeChild(stars.children[0])
+      stars.removeChild(stars.children[0]);
   } else if (moves === 20) {
       rating--;
-      stars.removeChild(stars.children[0])
+      stars.removeChild(stars.children[0]);
   }
 }
 
