@@ -7,6 +7,14 @@ Game Functionality
 -A incorrect guess
 -winning the game 
 Technical
+-Assets
+-How it's developed
+--build a grid of cards
+--add functionalities to handle clicks
+--work on matching logics
+--create winning conditions
+--implement additonal functionalities
+--styling
 
 ### Technical
 This project consists of the following assets: 
