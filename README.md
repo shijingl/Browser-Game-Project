@@ -49,7 +49,7 @@ Time recorder is implemented by the seconds that have been elapsed, and then con
 `sec = remainderSeconds;` <br/>
 
 ##### 6. styling
-Flipping cards is implemented through "transform" in the css. 
+Flipping cards is implemented through "transform: rotateY(0)" in the css. 
 
 ### Credits
 * For shuffling the cards shuffle javaScript function was used from http://stackoverflow.com/a/2450976
