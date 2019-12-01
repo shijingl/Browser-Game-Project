@@ -40,7 +40,14 @@ Matching logic is implemented in a way that if two cards have the same dataset, 
 Winning condition is determined by the number of matches. If there are 8 matches, then there is a winning condition. <br/>
 `matches === 8`
 
---implement additonal functionalities
+##### 5. time recorder
+Time recorder is implemented by the seconds that have been elapsed, and then convert seconds into hours, minutes and remaining seconds. <br/>
+`let remainderSeconds = ++elapsedSeconds;` <br/>
+`hour = parseInt(remainderSeconds / 3600);` <br/>
+`min = parseInt(remainderSeconds / 60);` <br/>
+`remainderSeconds = remainderSeconds % 60;` <br/>
+`sec = remainderSeconds;` <br/>
+
 --styling
 
 ### Credits
