@@ -22,7 +22,8 @@ This project consists of the following assets:
 * `app.js` All the functions of the game
 
 #### How the game is designed and implemented
-
+##### 1. building a grid of cards
+`<li class="card" data-card="${card}"><i class = "fa ${card}"></i></li>;`
 
 -How it's developed
 --build a grid of cards
