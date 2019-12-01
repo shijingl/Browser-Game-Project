@@ -36,8 +36,10 @@ There are four event listeners in this application:
 Matching logic is implemented in a way that if two cards have the same dataset, then the two cards are considered as the matching cards.<br/> 
 `first_card.dataset.card == second_card.dataset.card`
 
---work on matching logics
---create winning conditions
+##### 4. winning condition
+Winning condition is determined by the number of matches. If there are 8 matches, then there is a winning condition. <br/>
+`matches === 8`
+
 --implement additonal functionalities
 --styling
 
