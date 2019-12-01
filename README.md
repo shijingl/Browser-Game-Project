@@ -1,9 +1,8 @@
 # Memory Game
 This is a shnazzy, well-designed, feature-packed memory game. To win this game, you have to find out all the match patterns on the deck. The game can be played [here](https://shijingl.github.io/Browser-Game-Project).
 
-How the game works
-Game Functionality
--A correct guess
+### How the game works
+##### A correct guess
 -A incorrect guess
 -winning the game 
 Technical
