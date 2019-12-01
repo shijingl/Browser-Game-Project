@@ -32,6 +32,10 @@ There are four event listeners in this application:
 * `replay:` choose to replay the game in the winning modal.
 * `close:`choose to close the modal in the winning status.
 
+##### 3. matching logic
+Matching logic is implemented in a way that if two cards have the same dataset, then the two cards are considered as the matching cards.<br/> 
+`first_card.dataset.card == second_card.dataset.card`
+
 --work on matching logics
 --create winning conditions
 --implement additonal functionalities
