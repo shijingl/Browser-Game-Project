@@ -21,7 +21,8 @@ This project consists of the following assets:
 * `app.css` All the styling
 * `app.js` All the functions of the game
 
-#### How the game is designed
+#### How the game is designed and implemented
+
 
 -How it's developed
 --build a grid of cards
@@ -30,12 +31,6 @@ This project consists of the following assets:
 --create winning conditions
 --implement additonal functionalities
 --styling
-
-### Technical
-This project consists of the following assets: 
-* `index.html` The HTML files that contains the general structure of the game
-* `app.css` All the styling
-* `app.js` All the functions of the game
 
 ### Credits
 * For shuffling the cards shuffle javaScript function was used from http://stackoverflow.com/a/2450976
