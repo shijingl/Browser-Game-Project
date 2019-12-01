@@ -25,9 +25,13 @@ This project consists of the following assets:
 ##### 1. building a grid of cards
 `<li class="card" data-card="${card}"><i class = "fa ${card}"></i></li>;`
 
--How it's developed
---build a grid of cards
---add functionalities to handle clicks
+##### 2. design event listeners
+There are four event listeners in this application: 
+* `card:` card will be flipped if it's clicked.
+* `restart:`the game will be restarted and time will be reset if restart button is clicked.
+* `replay:` choose to replay the game in the winning modal.
+* `close:`choose to close the modal in the winning status.
+
 --work on matching logics
 --create winning conditions
 --implement additonal functionalities
