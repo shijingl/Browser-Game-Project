@@ -1,3 +1,5 @@
+'use strict';
+
 const icons =  ['fa-diamond',
               'fa-paper-plane-o',
               'fa-anchor',
@@ -123,7 +125,7 @@ function resetGame() {
   
   //shuffle the cards
   deck.innerHTML = cardHTML.join('');
-  allCards = document.querySelectorAll('.card'); 
+  const allCards = document.querySelectorAll('.card'); 
 
   allCards.forEach(function(card){
     card.addEventListener('click', showCard)
